@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kiểm Tra Năng Lực Tiếng Nhật - Nội Bộ</title>
+    <title>Góc Tiếng Nhật & Cuộc Sống Ở Nhật - Hiệp</title>
     <style>
         :root {
             --primary-color: #2563eb;
             --bg-color: #f8fafc;
             --card-bg: #ffffff;
             --text-color: #1e293b;
+            --text-light: #64748b;
             --border-color: #e2e8f0;
         }
 
@@ -18,218 +19,229 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             margin: 0;
-            padding: 20px;
-            line-height: 1.6;
+            padding: 0;
+            line-height: 1.7;
+        }
+
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 25px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 24px;
+        }
+
+        header p {
+            margin: 5px 0 0;
+            color: var(--text-light);
+            font-size: 14px;
         }
 
         .container {
-            max-width: 650px;
+            max-width: 800px;
             margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .post-card {
             background: var(--card-bg);
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        h2 { text-align: center; color: var(--primary-color); margin-top: 0; }
-        
-        .form-group { margin-bottom: 20px; }
-        label { display: block; font-weight: 600; margin-bottom: 8px; }
-        input[type="text"], input[type="password"] {
-            width: 100%;
-            padding: 10px;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
-            box-sizing: border-box;
-            font-size: 15px;
+            transition: transform 0.2s;
         }
 
-        .btn {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
+        .post-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .post-date {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .post-title {
+            font-size: 20px;
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .post-title:hover {
+            color: var(--primary-color);
+        }
+
+        .post-excerpt {
+            color: var(--text-light);
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        .article-view {
+            background: var(--card-bg);
+            padding: 35px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .article-view h2 {
+            margin-top: 0;
+            color: var(--text-color);
+        }
+
+        .article-view ul {
+            padding-left: 20px;
+        }
+
+        .article-view li {
+            margin-bottom: 10px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            text-decoration: none;
             font-weight: 600;
             cursor: pointer;
-            width: 100%;
         }
-        .btn:hover { background-color: #1d4ed8; }
+
+        .back-btn:hover {
+            text-decoration: underline;
+        }
 
         .hidden { display: none !important; }
 
-        .question-box {
-            background: #f1f5f9;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-        }
-        .question-box p { font-weight: 600; margin-top: 0; }
-
-        .result-box {
-            background: #eff6ff;
-            border: 1px solid #bfdbfe;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-
-        .ai-prompt-box {
-            background: #f8fafc;
-            border: 1px dashed var(--primary-color);
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 15px;
-            font-family: monospace;
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: var(--text-light);
             font-size: 13px;
-            white-space: pre-wrap;
-            word-break: break-all;
         }
     </style>
 </head>
 <body>
 
+    <header>
+        <h1>Góc Chia Sẻ Tiếng Nhật & Công Xưởng</h1>
+        <p>Tổng hợp kinh nghiệm làm việc, từ vựng và cuộc sống tại Nhật Bản</p>
+    </header>
+
     <div class="container">
-        <!-- BƯỚC 1: ĐĂNG NHẬP MẬT KHẨU & TÊN -->
-        <div id="login-section">
-            <h2>Kiểm Tra Tiếng Nhật Nội Bộ</h2>
-            <div class="form-group">
-                <label>Họ và tên của bạn:</label>
-                <input type="text" id="username" placeholder="Ví dụ: Nguyễn Văn A">
+
+        <!-- ================= TRANG CHỦ (DANH SÁCH BÀI VIẾT) ================= -->
+        <div id="home-section">
+            <h3 style="border-left: 4px solid var(--primary-color); padding-left: 10px; margin-bottom: 20px;">Bài viết mới nhất</h3>
+
+            <!-- Bài viết 1 -->
+            <div class="post-card">
+                <div class="post-date">Ngày 20/08/2026 • Tác giả: Hiệp</div>
+                <span class="post-title" onclick="openArticle('article1')">Kinh nghiệm xử lý tình huống khi công việc bị chậm tiến độ trong công xưởng Nhật</span>
+                <div class="post-excerpt">
+                    Trong môi trường làm việc tại Nhật Bản, khi gặp sự cố khiến tiến độ giao hàng (納期 - nouki) bị chậm trễ, việc báo cáo đúng cách với cấp trên đóng vai trò cực kỳ quan trọng...
+                </div>
+                <span class="read-more" onclick="openArticle('article1')">Đọc tiếp &rarr;</span>
             </div>
-            <div class="form-group">
-                <label>Mật khẩu truy cập đề thi:</label>
-                <input type="password" id="password" placeholder="Mật khẩu mặc định: hiep123">
+
+            <!-- Bài viết 2 (Mẫu thêm sẵn để bạn dễ hình dung) -->
+            <div class="post-card">
+                <div class="post-date">Ngày 20/08/2026 • Tác giả: Hiệp</div>
+                <span class="post-title" onclick="openArticle('article2')">Tổng hợp các từ vựng tiếng Nhật quan trọng trong hệ thống chân không sản xuất</span>
+                <div class="post-excerpt">
+                    Làm việc trong lĩnh vực thiết bị bán dẫn và cơ khí chính xác, việc nắm rõ các thuật ngữ chuyên ngành về chân không, bơm, và đồng hồ đo áp suất là vô cùng cần thiết...
+                </div>
+                <span class="read-more" onclick="openArticle('article2')">Đọc tiếp &rarr;</span>
             </div>
-            <button class="btn" onclick="checkLogin()">Vào làm bài</button>
-            <p id="error-msg" style="color: red; text-align: center; margin-top: 10px;"></p>
+
         </div>
 
-        <!-- BƯỚC 2: GIAO DIỆN LÀM BÀI -->
-        <div id="quiz-section" class="hidden">
-            <h2>Đề Kiểm Tra Tiếng Nhật</h2>
-            <p>Thí sinh: <strong id="display-name"></strong></p>
-            <hr style="border: 0; border-top: 1px solid var(--border-color); margin-bottom: 20px;">
 
-            <!-- Câu hỏi 1 -->
-            <div class="question-box">
-                <p>1. "お疲れ様でした" thường được dùng trong hoàn cảnh nào?</p>
-                <label><input type="radio" name="q1" value="A"> A. Chào buổi sáng khi vừa đến công ty</label><br>
-                <label><input type="radio" name="q1" value="B"> B. Nói khi kết thúc công việc hoặc đồng nghiệp về trước</label><br>
-                <label><input type="radio" name="q1" value="C"> C. Lời xin lỗi khi làm sai việc</label>
-            </div>
-
-            <!-- Câu hỏi 2 -->
-            <div class="question-box">
-                <p>2. Khi báo cáo tiến độ công việc bị chậm trễ với cấp trên, bạn nên nói điều gì đầu tiên?</p>
-                <label><input type="radio" name="q2" value="A"> A. Xin lỗi vì đã làm phiền</label><br>
-                <label><input type="radio" name="q2" value="B"> B. Báo cáo ngay tình hình thực tế và xin chỉ đạo</label><br>
-                <label><input type="radio" name="q2" value="C"> C. Cả A và B đều đúng</label>
-            </div>
-
-            <!-- Câu hỏi 3 -->
-            <div class="question-box">
-                <p>3. Từ vựng "納期" (nouki) trong môi trường sản xuất nghĩa là gì?</p>
-                <label><input type="radio" name="q3" value="A"> A. Thời hạn giao hàng</label><br>
-                <label><input type="radio" name="q3" value="B"> B. Quy trình vận hành</label><br>
-                <label><input type="radio" name="q3" value="C"> C. Thiết bị an toàn</label>
-            </div>
-
-            <button class="btn" onclick="submitQuiz()">Nộp bài và xem kết quả</button>
-        </div>
-
-        <!-- BƯỚC 3: HIỂN THỊ KẾT QUẢ & GỢI Ý ĐÁNH GIÁ CỦA AI -->
-        <div id="result-section" class="hidden">
-            <h2>Kết Quả Kiểm Tra</h2>
-            <div class="result-box">
-                <p>Họ tên: <strong id="res-name"></strong></p>
-                <p>Số câu đúng: <strong id="res-score"></strong> / 3</p>
-                <p id="res-comment" style="font-weight: 600;"></p>
-            </div>
-
-            <h3>Đánh giá từ AI</h3>
-            <p>Bạn hãy copy đoạn nội dung dưới đây và gửi vào ChatGPT hoặc Gemini để AI phân tích chi tiết điểm mạnh và điểm yếu cho bạn nhé:</p>
+        <!-- ================= NỘI DUNG CHI TIẾT BÀI VIẾT 1 ================= -->
+        <div id="article1" class="article-view hidden">
+            <span class="back-btn" onclick="goHome()">&larr; Quay lại danh sách bài viết</span>
+            <div class="post-date">Ngày 20/08/2026 • Tác giả: Hiệp</div>
+            <h2>Kinh nghiệm xử lý tình huống khi công việc bị chậm tiến độ trong công xưởng Nhật</h2>
+            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 20px 0;">
             
-            <div class="ai-prompt-box" id="ai-prompt-text"></div>
+            <p>Trong môi trường sản xuất và kỹ thuật tại Nhật Bản, tiến độ công việc (đặc biệt là <strong>納期 - nouki</strong>) luôn được đặt lên hàng đầu. Tuy nhiên, trong quá trình vận hành thiết bị hoặc lắp ráp, đôi khi sẽ xảy ra những sự cố bất ngờ khiến công việc bị chậm trễ.</p>
             
-            <button class="btn" style="margin-top: 15px; background-color: #059669;" onclick="copyPrompt()">Sao chép nội dung gửi AI</button>
+            <p>Khi gặp tình huống này, điều tối kỵ là giấu giếm thông tin. Bạn cần ghi nhớ nguyên tắc <strong>Horenso</strong> (Báo cáo - Liên lạc - Thảo luận) với các bước cơ bản sau:</p>
+            
+            <ul>
+                <li><strong>Báo cáo ngay lập tức:</strong> Ngay khi nhận thấy có nguy cơ chậm tiến độ, hãy báo ngay cho cấp trên (Leader hoặc Quản lý) thay vì cố tự xử lý đến phút cuối.</li>
+                <li><strong>Trình bày rõ thực trạng:</strong> Nói rõ nguyên nhân vì sao bị chậm (ví dụ: lỗi linh kiện, cần thêm thời gian kiểm tra, v.v.).</li>
+                <li><strong>Đưa ra phương án đề xuất:</strong> Thay vì chỉ báo lỗi, hãy chuẩn bị sẵn 1-2 phương án giải quyết để cấp trên dễ dàng ra quyết định.</li>
+            </ul>
+
+            <p>Hy vọng bài viết nhỏ này sẽ giúp các bạn tự tin hơn trong giao tiếp và xử lý công việc hằng ngày cùng các đồng nghiệp người Nhật!</p>
+            
+            <span class="back-btn" onclick="goHome()" style="margin-top: 30px;">&larr; Quay lại danh sách bài viết</span>
         </div>
+
+
+        <!-- ================= NỘI DUNG CHI TIẾT BÀI VIẾT 2 ================= -->
+        <div id="article2" class="article-view hidden">
+            <span class="back-btn" onclick="goHome()">&larr; Quay lại danh sách bài viết</span>
+            <div class="post-date">Ngày 20/08/2026 • Tác giả: Hiệp</div>
+            <h2>Tổng hợp các từ vựng tiếng Nhật quan trọng trong hệ thống chân không sản xuất</h2>
+            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 20px 0;">
+            
+            <p>Khi làm việc với các hệ thống thiết bị công nghiệp khắt khe, việc hiểu và sử dụng chính xác từ vựng tiếng Nhật chuyên ngành sẽ giúp công việc diễn ra trôi chảy hơn rất nhiều. Dưới đây là một số từ vựng cốt lõi:</p>
+            
+            <ul>
+                <li><strong>クライオポンプ (Cryopump):</strong> Bơm đông lạnh / Bơm hút chân không nhiệt độ thấp.</li>
+                <li><strong>ピラニーゲージ (Pirani gauge):</strong> Đồng hồ đo áp suất Pirani dùng trong hệ thống chân không.</li>
+                <li><strong>マスフローコントローラ (Mass Flow Controller - MFC):</strong> Bộ điều khiển lưu lượng khí tự động.</li>
+                <li><strong>リークテスト (Leak test):</strong> Kiểm tra rò rỉ khí / kiểm tra độ kín của buồng chân không (thường dùng phương pháp bơm khí Heli).</li>
+            </ul>
+
+            <p>Hãy ghi nhớ và áp dụng những từ vựng này vào các buổi thảo luận kỹ thuật hàng ngày tại xưởng nhé!</p>
+            
+            <span class="back-btn" onclick="goHome()" style="margin-top: 30px;">&larr; Quay lại danh sách bài viết</span>
+        </div>
+
     </div>
 
+    <footer>
+        &copy; 2026 Góc Tiếng Nhật của Hiệp. Xây dựng và chia sẻ miễn phí trên GitHub Pages.
+    </footer>
+
     <script>
-        const CORRECT_PASSWORD = "hiep123"; 
-        const correctAnswers = { q1: "B", q2: "C", q3: "A" };
-
-        function checkLogin() {
-            const nameInput = document.getElementById("username");
-            const passInput = document.getElementById("password");
-            const errorMsg = document.getElementById("error-msg");
-
-            const name = nameInput ? nameInput.value.trim() : "";
-            const pass = passInput ? passInput.value.trim() : "";
-
-            if (name === "") {
-                errorMsg.innerText = "Vui lòng nhập tên của bạn!";
-                return;
-            }
-            if (pass !== CORRECT_PASSWORD) {
-                errorMsg.innerText = "Mật khẩu không chính xác! (Mật khẩu: hiep123)";
-                return;
-            }
-
-            document.getElementById("display-name").innerText = name;
-            document.getElementById("login-section").classList.add("hidden");
-            document.getElementById("quiz-section").classList.remove("hidden");
+        function openArticle(articleId) {
+            document.getElementById("home-section").classList.add("hidden");
+            document.getElementById(articleId).classList.remove("hidden");
+            window.scrollTo(0, 0);
         }
 
-        function submitQuiz() {
-            const nameInput = document.getElementById("username");
-            const name = nameInput ? nameInput.value.trim() : "Thí sinh";
-            let score = 0;
-
-            let userAnswers = {};
-            for (let key in correctAnswers) {
-                const selected = document.querySelector(`input[name="${key}"]:checked`);
-                userAnswers[key] = selected ? selected.value : "Chưa trả lời";
-                if (selected && selected.value === correctAnswers[key]) {
-                    score++;
-                }
-            }
-
-            document.getElementById("res-name").innerText = name;
-            document.getElementById("res-score").innerText = score;
-
-            let comment = "";
-            if (score === 3) {
-                comment = "Xuất sắc! Kiến thức tiếng Nhật và từ vựng công xưởng rất tốt.";
-            } else if (score >= 1) {
-                comment = "Khá tốt, nhưng cần ôn tập thêm về từ vựng chuyên ngành hoặc văn hóa công sở.";
-            } else {
-                comment = "Cần cố gắng nhiều hơn, hãy luyện tập thêm các tình huống giao tiếp cơ bản.";
-            }
-            document.getElementById("res-comment").innerText = comment;
-
-            const aiText = `Xin chào AI, tôi vừa làm bài kiểm tra tiếng Nhật nội bộ công ty với tên là "${name}". 
-Kết quả của tôi đạt ${score}/3 câu đúng. 
-Chi tiết câu trả lời của tôi:
-- Câu 1: ${userAnswers.q1} (Đáp án đúng: B)
-- Câu 2: ${userAnswers.q2} (Đáp án đúng: C)
-- Câu 3: ${userAnswers.q3} (Đáp án đúng: A)
-
-Hãy đóng vai trò là một giáo viên tiếng Nhật chuyên nghiệp, hãy đánh giá giúp tôi xem tôi đang mạnh ở điểm nào, yếu ở điểm nào và đưa ra lời khuyên cụ thể để cải thiện khả năng tiếng Nhật trong môi trường làm việc nhé!`;
-
-            document.getElementById("ai-prompt-text").innerText = aiText;
-
-            document.getElementById("quiz-section").classList.add("hidden");
-            document.getElementById("result-section").classList.remove("hidden");
-        }
-
-        function copyPrompt() {
-            const textToCopy = document.getElementById("ai-prompt-text").innerText;
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                alert("Đã sao chép thành công! Bạn hãy mở ChatGPT hoặc Gemini và dán (Paste) vào để nhận đánh giá chi tiết nhé.");
-            });
+        function goHome() {
+            document.querySelectorAll(".article-view").forEach(el => el.classList.add("hidden"));
+            document.getElementById("home-section").classList.remove("hidden");
+            window.scrollTo(0, 0);
         }
     </script>
 </body>
